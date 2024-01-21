@@ -48,12 +48,22 @@ body{
     color: var(--text-color);
 }
 header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 20px 70px;
 
+}
+header.sticky{
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--secon-bg-color);
+    padding: 12px 10%;
 }
 .logo{
     font-size: 27px;
@@ -70,6 +80,7 @@ span{
 .navlist a{
     color: var(--text-color);
     font-family: 500;
+    font-size: 20px;
     padding: 10px 20px;
 }
 .navlist a:hover{
@@ -82,6 +93,9 @@ span{
     0 0 80px rgba(18,247,255,0.6),
     0 0 100px rgba(18,247,255,0.6),
     0 0 150px rgba(18,247,255,0.6); ;
+}
+.navlist a.active{
+    color: var(--hover-color);
 }
 #menu-icon{
     font-size: 1.8rem;
@@ -398,15 +412,23 @@ box-shadow: var(--neon-boox-shadow);
 /*=== project =====*/
 .projects__container{
     overflow: initial;
+  
+
    
 }
+.swiper-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 35px;
+    
+}
 .projects__content{
-    width: 50%;
-    border-radius: 7%;
+    width: 35%;
+    height: 550px;
     margin: auto;
+    border-radius: 7%;
     display: grid;
-    justify-content: center;
-    align-items: center;
+    grid-template-rows: repeat(3,ifr);
     gap: 10px;
     box-shadow: var(--neon-boox-shadow);
     margin-top: 30px;
@@ -433,7 +455,7 @@ box-shadow: var(--neon-boox-shadow);
 }
 
 .projects__button button{
-    margin-left: 100px;
+    margin-left: 50px;
     border-radius: 20px;
     color: darkcyan;
     background-color: lightgray;
@@ -603,6 +625,147 @@ box-shadow: var(--neon-boox-shadow);
     display: block;
     margin-top: 4.5rem;
     font-size: 1.25rem;
+}
+/* Break point*/
+@media (max-width:991px){
+    header,
+    header.sticky{
+        padding: 15px 5%;
+    }
+    footer{
+        padding: 15px 5%;
+    }
+    section{
+        padding: 50px 5%;
+    }
+    .navlist a{
+        padding: 8px 15px;
+    }
+    :root{
+        
+        --big--font:2.2rem;
+        --norma-font:1.8rem;
+        --neon-boox-shadow: 0 0 .8rem #12f7ff;
+        --h2-font:3rem;  
+    }
+    .home-content{
+        margin-top: 5rem;
+    }
+    .social-icons{
+        margin-top: 1rem;
+    }
+    .swiper-wrapper {
+        flex-wrap: wrap;
+        
+    }
+    .projects__content{
+        width: 60%;
+        height: 510px;
+       
+    }
+    .projects__img{
+        
+        height:300px;
+        
+    }
+    .projects__subtitle{
+        font-size: 1.3rem;
+    }
+    .projects__tittle{
+        font-size: 16px;
+        
+    }
+   .projects__button button{
+    margin-left: 20px;
+        padding: 7px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:768px){
+    #menu-icon{
+        display: block;
+        transition: all .4s ease;
+    }
+    #menu-icon.bx-x{
+        transform: rotate(-180deg);
+    }
+    .navlist{
+        display: flex;
+        position: absolute;
+        top: -1000px;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        padding: 0 5%;
+        transition: all .45s ease;
+    }
+    .navlist a{
+        display: block;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+
+    }
+    .navlist.open{
+        top: 100%;
+    }
+    .home{
+        grid-template-columns: 1fr;
+    }
+    .home-image{
+        margin-bottom: 5rem;
+    }
+    .about{
+        flex-direction: column-reverse;
+    }
+    .about .about-img .abouthero{
+        width: 63vw;
+        
+        
+    }
+    .about-content h3{
+        font-size: 1.7rem;
+        color: purple;
+    
+    }
+    .about-btn button{
+        background-color: lightblue;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #000;
+                 
+     } 
+     .skills__name{
+        font-size: 15px;
+    }
+    .swiper-wrapper {
+        flex-wrap: wrap;
+        
+    }
+    .projects__content{
+        width: 70%;
+        height: 500px;
+       
+    }
+    .projects__img{
+        
+        height: 250px;
+        
+    }
+    .projects__subtitle{
+        font-size: 1.3rem;
+    }
+    .projects__tittle{
+        font-size: 14px;
+        
+    }
+   .projects__button button{
+        padding: 8px;
+        font-size: 13px;
+    }
+
 }
 
 
